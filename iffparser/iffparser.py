@@ -41,18 +41,21 @@ def parseImage(filename: str) -> IFFImage:
 
 def __isiff(f: IO) -> None:
     # check FORM
-    if f.read(4) != b"FORM":
-        raise Exception("not an IFF")
+    form = f.read(4)
+    if form != b"FORM":
+        raise Exception("not an IFF ({} != {})".format(form, b"FORM"))
 
     # check size
     filesize = __readLong(f)
-    if len(f.read(filesize)) != filesize:
-        raise Exception("IFF corrupt")
+    fr = f.read(filesize)
+    # if len(fr) != filesize:
+    #     raise Exception("IFF corrupt ({} != {})".format(len(fr), filesize))
 
     # seek back to start
     f.seek(8, 0)
-    if f.read(4) != b"ILBM":
-        raise Exception("not an IFF")
+    ilbm = f.read(4)
+    if ilbm != b"ILBM":
+        raise Exception("not an IFF ({} != {})".format(ilbm, b"ILBM"))
 
 
 def __parseChunk(chunk: Chunk, image: IFFImage) -> None:
