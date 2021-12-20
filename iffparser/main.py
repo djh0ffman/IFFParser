@@ -4,24 +4,21 @@ from os.path import isdir, isfile
 from . import __version__, iffparser
 
 
-# type: (str) -> str
-def check_isfile(v):
+def check_isfile(v: str) -> str:
     if not isfile(v):
         raise argparse.ArgumentTypeError("%s is not file" % v)
     else:
         return v
 
 
-# type: (str) -> str
-def check_isdir(v):
+def check_isdir(v: str) -> str:
     if not isdir(v):
         raise argparse.ArgumentTypeError("%s is not file" % v)
     else:
         return v
 
 
-# type: (None) -> argparse.Namespace
-def parse_args():
+def parse_args() -> argparse.Namespace:
     """Parse arguments."""
     parser = argparse.ArgumentParser(
         prog="iffp",
@@ -40,8 +37,7 @@ def parse_args():
     return parser.parse_args()
 
 
-# type: (None) -> None
-def main():
+def main() -> None:
     args = parse_args()
     i = iffparser.parseImage(args.iff_file)
     print(i)
