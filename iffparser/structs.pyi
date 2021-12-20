@@ -1,17 +1,14 @@
 from typing import List
 
-
 class Chunk:
     type: str
     size: int
     data: bytes
 
-
 class Color:
     red: int
     green: int
     blue: int
-
 
 class BitmapHeader:
     width: int
@@ -27,7 +24,6 @@ class BitmapHeader:
     yAspectRatio: int
     pageWidth: int
     pageHeight: int
-
 
 class IFFImage:
     header: BitmapHeader

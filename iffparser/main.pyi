@@ -1,7 +1,5 @@
 import argparse
-
-from . import iffparser as iffparser  # noqa
-
+from . import iffparser as iffparser
 
 def check_isfile(v: str) -> str: ...
 def check_isdir(v: str) -> str: ...

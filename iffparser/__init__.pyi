@@ -1,1 +1,1 @@
-from .iffparser import parseImage as parseImage  # noqa
+from .iffparser import parseImage as parseImage

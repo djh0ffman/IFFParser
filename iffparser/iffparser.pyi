@@ -1,6 +1,3 @@
-from .structs import Chunk as Chunk  # noqa
-from .structs import Color as Color  # noqa
-from .structs import IFFImage as IFFImage
-
+from .structs import Chunk as Chunk, Color as Color, IFFImage as IFFImage
 
 def parseImage(filename: str) -> IFFImage: ...
